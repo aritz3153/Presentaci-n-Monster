@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desata el monstruo en ti – Análisis del anuncio de Monster Energy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--n:#050a06;--c:#101a12;--v:#8cff1a;--vo:#2f8f12;--b:#f2f7ee;--g:#a9b8a3;
+--d:"Anton",Impact,"Arial Narrow",sans-serif;--t:"Barlow","Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--n);color:var(--b);font-family:var(--t)}
+.slide{position:absolute;inset:0;display:none;padding:5vh 6vw 9vh;flex-direction:column;justify-content:center;gap:2.2vh;
+background:repeating-linear-gradient(115deg,transparent 0 46px,rgba(140,255,26,.05) 46px 50px),radial-gradient(ellipse at 85% 0%,#14380d 0%,var(--n) 62%)}
+.slide.on{display:flex;animation:in .45s ease}
+@keyframes in{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+h1,h2{font-family:var(--d);font-weight:400;text-transform:uppercase;line-height:1}
+h1{font-size:clamp(3rem,10vw,8rem);transform:skew(-6deg)}
+h1 span{display:block;color:var(--v);text-shadow:5px 5px 0 #000}
+h2{font-size:clamp(2rem,5vw,3.8rem);border-left:10px solid var(--v);padding-left:1rem}
+h2 small{display:block;font-family:var(--t);font-size:1rem;color:var(--g);letter-spacing:.15em;margin-bottom:.3rem}
+h3{color:var(--v);font-size:clamp(1.1rem,2vw,1.5rem);margin-bottom:.3rem}
+p,li{font-size:clamp(1rem,1.9vw,1.4rem);line-height:1.5}
+.sub{font-size:clamp(1.1rem,2.4vw,1.8rem)}
+.g{color:var(--g)}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:3vw;align-items:center}
+.rej{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.2vw}
+.caja{background:var(--c);border-top:5px solid var(--v);padding:1.2rem}
+.caja .ic{font-size:2rem;display:block;margin-bottom:.3rem}
+.caja p{font-size:clamp(.95rem,1.6vw,1.2rem)}
+ul{list-style:none}
+li{margin-bottom:.8rem;padding-left:1.6rem;position:relative}
+li::before{content:"▶";color:var(--v);position:absolute;left:0;font-size:.8em;top:.2em}
+/* fotos */
+.foto{position:relative;min-height:30vh;height:100%;max-height:58vh;border:3px solid var(--v);box-shadow:12px 12px 0 var(--vo);
+background:linear-gradient(135deg,#0d2a09,#1e6a10);display:grid;place-items:center;overflow:hidden;border-radius:6px}
+.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.foto .ph{text-align:center;padding:1rem;color:var(--g);font-size:.95rem}
+.foto .ph b{display:block;font-size:3.5rem;color:var(--v);font-family:var(--d)}
+.tira{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5vw}
+.tira .foto{min-height:24vh;box-shadow:6px 6px 0 var(--vo)}
+.pie{font-size:.8rem;color:var(--g);margin-top:.5rem}
+/* latas */
+.latas{display:flex;gap:1.2rem;justify-content:center;align-items:flex-end}
+.lata{width:clamp(60px,9vw,110px);height:clamp(130px,20vw,240px);border-radius:10px 10px 14px 14px;background:linear-gradient(90deg,#000,#222 40%,#000);
+border:2px solid #333;display:grid;place-items:center;position:relative}
+.lata::before{content:"";position:absolute;top:0;left:0;right:0;height:10%;background:#888;border-radius:10px 10px 0 0}
+.lata b{font-family:var(--d);font-size:clamp(2rem,5vw,4.5rem);font-weight:400}
+.lata.v{height:clamp(160px,25vw,300px)}.lata.v b{color:var(--v)}.lata.r b{color:#ff3b2f}.lata.a b{color:#2f8cff}
+/* colores */
+.col{display:flex;flex-wrap:wrap;gap:1rem}
+.col div{flex:1;min-width:130px;padding:1.2rem 1rem;font-weight:700;font-size:1.05rem;border-radius:4px}
+.col span{display:block;font-weight:400;font-size:.9rem;opacity:.85;margin-top:.3rem}
+/* tabla */
+table{border-collapse:collapse;width:100%;background:var(--c)}
+th,td{text-align:left;padding:.65rem 1rem;border-bottom:1px solid #25382a;font-size:clamp(.9rem,1.6vw,1.15rem)}
+th{color:var(--v);width:28%}
+/* lema grande */
+.lema{font-family:var(--d);text-transform:uppercase;line-height:1;font-size:clamp(2.5rem,9vw,7rem);transform:rotate(-3deg);text-align:center}
+.lema em{font-style:normal;color:var(--v);text-shadow:4px 4px 0 #000}.lema small{font-size:.45em;color:var(--b)}
+.anot{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+.anot span{background:var(--v);color:var(--n);padding:.4rem 1rem;font-weight:700;border-radius:30px;font-size:1.05rem}
+/* controles */
+#bar{position:fixed;top:0;left:0;height:6px;background:var(--v);width:0;transition:width .3s;z-index:9}
+#ctl{position:fixed;bottom:2vh;right:2vw;display:flex;gap:.5rem;align-items:center;z-index:9}
+#ctl button{background:var(--v);color:var(--n);border:0;font-family:var(--d);font-size:1.3rem;width:2.6rem;height:2.6rem;cursor:pointer;border-radius:4px}
+#ctl button:focus-visible{outline:3px solid #fff}
+#num{color:var(--g);font-size:.95rem;min-width:4rem;text-align:center}
+a{color:var(--v)}
+@media(max-width:800px){.dos{grid-template-columns:1fr}.slide{overflow-y:auto;justify-content:flex-start;padding-top:6vh}.foto{max-height:34vh}.tira{grid-template-columns:1fr 1fr 1fr}}
+
+.tarj{cursor:pointer;padding:0 0 .9rem;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+.tarj:hover,.tarj:focus-visible{transform:translateY(-6px);box-shadow:0 10px 0 var(--vo);outline:none}
+.tarj h3,.tarj p,.tarj .mas{padding:0 1rem}
+.tarj h3{margin-top:.7rem}
+.tf{position:relative;height:clamp(70px,15vh,150px);background:linear-gradient(135deg,#0d2a09,#1e6a10);display:grid;place-items:center;overflow:hidden}
+.tf span{font-size:clamp(2rem,5vh,3.4rem)}
+.tf img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.mas{display:block;margin-top:auto;padding-top:.6rem;font-style:normal;font-size:.85rem;color:var(--v);font-weight:700}
+.mas::after{content:" ＋"}
+#modal{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.82);display:none;place-items:center;padding:4vw}
+#modal.open{display:grid;animation:in .25s ease}
+#mbox{background:var(--c);border:3px solid var(--v);box-shadow:14px 14px 0 var(--vo);max-width:56rem;width:100%;max-height:88vh;overflow:auto;display:grid;grid-template-columns:1fr 1.1fr}
+#mimg{position:relative;min-height:240px;background:linear-gradient(135deg,#0d2a09,#1e6a10);display:grid;place-items:center;font-size:6rem}
+#mimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+#mtxt{padding:1.8rem}
+#mtxt h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1rem}
+#mx{position:absolute;top:1.5vh;right:1.5vw;background:var(--v);color:var(--n);border:0;width:2.6rem;height:2.6rem;font-size:1.4rem;cursor:pointer;border-radius:4px;font-weight:700}
+@media(max-width:800px){#mbox{grid-template-columns:1fr}}
+.estrategias h2{margin-top:2vh}
+.estrategias .rej{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2vw}
+.slide{overflow-y:auto}
+.slide.portada.on{display:grid;grid-template-columns:1.15fr 1fr;gap:4vw;align-items:center}
+.portada .ptxt{display:flex;flex-direction:column;gap:2.2vh}
+.portada h1{font-size:clamp(2.6rem,6.5vw,6rem)}
+.portada .pimg{height:62vh;max-height:none;min-height:0}
+@media(max-width:600px){.slide.portada.on{grid-template-columns:1fr;align-content:center}.portada .pimg{height:30vh}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<!-- 1 PORTADA -->
+<section class="slide portada on">
+  <div class="ptxt">
+    <p class="g" style="font-weight:700;letter-spacing:.1em">LENGUA CASTELLANA Y LITERATURA</p>
+    <h1>Desata el <span>monstruo</span> en ti</h1>
+    <p class="sub">Análisis de un anuncio publicitario de Monster Energy</p>
+    <p class="g">1ºBach-B · Aritz, Emmanuel, Carlos · 28/10/2026</p>
+  </div>
+  <div class="foto pimg"><img src="img/portada.jpg" alt="Imagen de portada: Monster Energy" onerror="this.remove()"><div class="ph"><b>FOTO</b>Pon aquí tu imagen:<br>img/portada.jpg</div></div>
+</section>
+
+<!-- 2 ANUNCIO -->
+<section class="slide">
+  <h2><small>01 · EL ANUNCIO</small>Un cartel que entra por los ojos</h2>
+  <div class="dos">
+    <div class="foto"><img src="img/anuncio.jpg" alt="Anuncio de Monster Energy" onerror="this.remove()"><div class="ph"><b>FOTO</b>Pon aquí el anuncio:<br>img/anuncio.jpg</div></div>
+    <ul>
+      <li><strong>Anuncio fijo</strong> (cartel).</li>
+      <li>Tres latas: <strong style="color:#ff3b2f">roja</strong>, <strong style="color:var(--v)">verde</strong> y <strong style="color:#2f8cff">azul</strong>.</li>
+      <li>Un joven con ropa urbana <strong>salta con los brazos abiertos</strong>.</li>
+      <li>Fondo verde con <strong>destellos</strong> y flechas luminosas.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3 FICHA -->
+<section class="slide">
+  <h2><small>02 · FICHA TÉCNICA</small>Datos clave</h2>
+  <table>
+    <tr><th>Marca</th><td>Monster Energy (Monster Beverage Corporation, California, EE. UU.)</td></tr>
+    <tr><th>Producto</th><td>Bebida energética en lata, varias variedades</td></tr>
+    <tr><th>Lema</th><td>«Desata el monstruo en ti»</td></tr>
+    <tr><th>Tipo y soporte</th><td>Publicidad gráfica · imagen fija, impresa y digital</td></tr>
+    <tr><th>Público objetivo</th><td>Jóvenes aficionados a deportes extremos, música, videojuegos y cultura urbana</td></tr>
+    <tr><th>Tipo de texto</th><td>Texto publicitario con función apelativa</td></tr>
+    <tr><th> Año</th><td>6/03/2009 · </td></tr>
+  </table>
+</section>
+
+<!-- 4 COMUNICACION -->
+<section class="slide">
+  <h2><small>03 · COMUNICACIÓN</small>Elementos de la comunicación</h2>
+  <div class="rej">
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Emisor"><div class="tf"><span>📣</span><img src="img/emisor.jpg" alt="Emisor" onerror="this.remove()"></div><h3>Emisor</h3><p>Quién lanza el mensaje.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>La empresa <strong>Monster Energy</strong> (Monster Beverage Corporation).</li><li>Habla a través de su publicidad.</li><li>Se identifica con el logotipo y las latas.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Receptor"><div class="tf"><span>🎯</span><img src="img/receptor.jpg" alt="Receptor" onerror="this.remove()"></div><h3>Receptor</h3><p>A quién se dirige.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li><strong>Jóvenes</strong></li><li>Se les habla de tú: «en ti».</li><li>Aficionados al deporte extremo, la música y los videojuegos.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Mensaje"><div class="tf"><span>💬</span><img src="img/mensaje.jpg" alt="Mensaje" onerror="this.remove()"></div><h3>Mensaje</h3><p>Qué se quiere decir.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Beber Monster <strong>libera tu energía</strong> y tu lado salvaje.</li><li>Se vende una actitud, más que una bebida.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Canal"><div class="tf"><span>📺</span><img src="img/canal.jpg" alt="Canal" onerror="this.remove()"></div><h3>Canal</h3><p>Por dónde llega.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Visual: cartel impreso y pantallas.</li><li>Web, redes sociales y publicidad exterior.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Código"><div class="tf"><span>🔤</span><img src="img/codigo.jpg" alt="Código" onerror="this.remove()"></div><h3>Código</h3><p>Con qué signos se expresa.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Español escrito + lenguaje icónico (imagen, color, logotipo).</li><li><strong></strong></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Contexto"><div class="tf"><span>🌍</span><img src="img/contexto.jpg" alt="Contexto" onerror="this.remove()"></div><h3>Contexto</h3><p>En qué situación se da.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Sociedad.</li><li>Los jóvenes asocian las bebidas energéticas con deporte, ocio y rendimiento.</li></ul></div></div>
+  </div>
+</section>
+
+<!-- 5 FOTOS MARCA -->
+<section class="slide">
+  <h2><small>04 · LA MARCA EN IMÁGENES</small>Monster vive del deporte extremo</h2>
+  <div class="tira">
+    <div class="foto"><img src="img/monster-1.jpg" alt="Latas de Monster Energy" onerror="this.remove()"><div class="ph"><b>1</b>img/monster-1.jpg<br>Latas de Monster</div></div>
+    <div class="foto"><img src="img/monster-2.png" alt="Atleta patrocinado por Monster Energy" onerror="this.remove()"><div class="ph"><b>2</b>img/monster-2.jpg<br>Atleta patrocinado</div></div>
+    <div class="foto"><img src="img/monster-3.jpg" alt="Evento patrocinado por Monster Energy" onerror="this.remove()"><div class="ph"><b>3</b>img/monster-3.jpg<br>Evento o competición</div></div>
+  </div>
+  <p>Motocross, skate, snowboard, música y videojuegos: la marca <strong>no vende solo una bebida, vende un estilo de vida</strong>.</p>
+  <p class="pie">Fotos: <a href="https://www.monsterenergy.com" target="_blank" rel="noopener">monsterenergy.com</a></p>
+</section>
+
+<!-- 6 COMPOSICION -->
+<section class="slide">
+  <h2><small>05 · ANÁLISIS VISUAL</small>Imagen y composición</h2>
+  <div class="rej">
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Protagonista"><div class="tf"><span>🏂</span><img src="img/protagonista.jpg" alt="Protagonista" onerror="this.remove()"></div><h3>Protagonista</h3><p>Joven en pleno salto.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Ropa deportiva y gorra.</li><li>Transmite <strong>libertad, riesgo y movimiento</strong>.</li><li>Valores de los deportes extremos que la marca patrocina.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Las latas"><div class="tf"><span>🥫</span><img src="img/latas.jpg" alt="Las latas" onerror="this.remove()"></div><h3>Las latas</h3><p>El producto, en primer plano.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Tres latas: roja, verde y azul.</li><li>Son la base sobre la que «vuela» el joven.</li><li>La verde, central y más grande, destaca.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Recorrido visual"><div class="tf"><span>↯</span><img src="img/recorrido.jpg" alt="Recorrido visual" onerror="this.remove()"></div><h3>Recorrido visual</h3><p>Cómo mira el ojo.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Zigzag: lema → joven → latas → logotipo.</li><li>La figura en diagonal crea <strong>dinamismo</strong>.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Efectos"><div class="tf"><span>⚡</span><img src="img/efectos.jpg" alt="Efectos" onerror="this.remove()"></div><h3>Efectos</h3><p>Luz y velocidad.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Rayos de luz, destellos y flechas luminosas.</li><li>Dan sensación de <strong>energía y velocidad</strong>.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Plano y ángulo"><div class="tf"><span>📐</span><img src="img/plano.jpg" alt="Plano y ángulo" onerror="this.remove()"></div><h3>Plano y ángulo</h3><p>Desde dónde se ve.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Latas en plano frontal.</li><li>Así parecen <strong>grandes y poderosas</strong>.</li></ul></div></div>
+  </div>
+</section>
+
+<!-- 7 COLORES -->
+<section class="slide">
+  <h2><small>06 · ANÁLISIS VISUAL</small>El poder del color</h2>
+  <div class="col">
+    <div style="background:#3fbf1a;color:#000">VERDE<span>Energía, toxicidad, lo «monstruoso». Capta la atención al instante.</span></div>
+    <div style="background:#0a0a0a;border:2px solid #333">NEGRO<span>Fuerza, misterio, rebeldía.</span></div>
+    <div style="background:#fff;color:#000">BLANCO<span>Contraste: se lee sobre fondo oscuro.</span></div>
+    <div style="background:#e0261b">ROJO<span>Variedad de gama.</span></div>
+    <div style="background:#1b73e0">AZUL<span>Variedad de gama.</span></div>
+  </div>
+  <p>Predominan los <strong>colores intensos y saturados</strong>: transmiten fuerza y actividad.</p>
+</section>
+
+<!-- 8 LOGO -->
+<section class="slide">
+  <h2><small>07 · ANÁLISIS VISUAL</small>El logotipo</h2>
+  <div class="dos">
+    <div class="foto" style="max-height:50vh"><img src="monster.png" alt="Logotipo de Monster Energy" style="object-fit:cover;padding:0;width:100%;height:100%;max-width:none;position:absolute;inset:0;" onerror="this.remove()"><div class="ph"><b>M</b>monster.png<br>(logotipo)</div></div>
+    <ul>
+      <li>Una «M» formada por <strong>tres garras o arañazos</strong>, como si un monstruo hubiera marcado la lata.</li>
+      <li>Es un <strong>símbolo icónico</strong>: se reconoce sin leer el nombre.</li>
+      <li>Aparece en cada lata y en el pie del anuncio junto a «Monster Energy».</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 9 TEXTO -->
+<section class="slide">
+  <h2><small>08 · EL TEXTO</small>El eslogan</h2>
+  <div class="lema">Desata<br><em>el monstruo</em><br><small>en ti</small></div>
+  <div class="anot"><span>Mayúsculas gruesas y rugosas</span><span>Verde sobre fondo oscuro</span><span>Letras inclinadas</span><span>Bloque compacto</span><span>Arriba: lo primero que se lee</span></div>
+  <p class="g" style="text-align:center">«DESATA» es la palabra más grande: es el verbo de acción.</p>
+</section>
+
+<!-- 10 DENOTACION -->
+<section class="slide">
+  <h2><small>09 · EL TEXTO</small>Denotación y connotación</h2>
+  <div class="dos">
+    <div class="caja"><h3>Denotación (lo que dice)</h3><p>Se ordena al lector soltar o liberar («desatar») a una criatura fantástica y temible que está dentro de él.</p></div>
+    <div class="caja"><h3>Connotación (lo que sugiere)</h3><p>El «monstruo» simboliza la fuerza, el instinto y la energía interior. «Desatar» = liberarse de límites y normas. La bebida te hace más fuerte, más atrevido, diferente.</p></div>
+  </div>
+  <h3 style="margin-top:1rem">Recursos lingüísticos</h3>
+  <div class="anot" style="justify-content:flex-start"><span>Imperativo («desata»)</span><span>2.ª persona («en ti»)</span><span>Metáfora</span><span>Juego con <i>Monster</i></span><span>Frase breve</span></div>
+</section>
+
+<!-- 11 AUDIOVISUAL -->
+<section class="slide">
+  <h2><small>10 · ANÁLISIS AUDIOVISUAL</small>¿Y el sonido?</h2>
+  <div class="dos">
+    <div class="caja"><h3>Es una imagen fija</h3><p>No tiene sonido, montaje ni movimiento real: no corresponde un análisis audiovisual en sentido estricto.</p></div>
+    <ul>
+      <li>El salto, los destellos y las flechas crean un <strong>ritmo visual</strong> rápido.</li>
+      <li>Si le pusiéramos banda sonora: <strong>rock, metal o electrónica</strong> y rugidos.</li>
+      <li>Coherente con los eventos de motor, música y deportes de acción que patrocina.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 12 PERSUASION -->
+<section class="slide estrategias">
+  <h2><small>11 · INTENCIÓN</small>Estrategias persuasivas</h2>
+  <p><strong>Objetivo:</strong> vender la bebida y reforzar la imagen de marca. Monster propone una forma de ser: rebelde, enérgica, sin miedo.</p>
+  <div class="rej">
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Emociones"><div class="tf"><span>❤️</span><img src="img/emociones.jpg" alt="Emociones" onerror="this.remove()"></div><h3>Emociones</h3><p>Se vende sentimiento.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>No explica ingredientes ni precio.</li><li>Busca <strong>adrenalina</strong> y deseo de pertenencia.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Identificación"><div class="tf"><span>🪞</span><img src="img/identificacion.jpg" alt="Identificación" onerror="this.remove()"></div><h3>Identificación</h3><p>«Quiero ser como él».</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>El joven que salta representa al público objetivo.</li><li>El espectador se ve reflejado.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Deporte extremo"><div class="tf"><span>🏍️</span><img src="img/deporte.jpg" alt="Deporte extremo" onerror="this.remove()"></div><h3>Deporte extremo</h3><p>Asociación con el riesgo.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Se vincula la bebida con rendimiento y estilo urbano.</li><li>Monster patrocina motor, música y deportes de acción.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Eslogan y repetición"><div class="tf"><span>🔁</span><img src="img/eslogan.jpg" alt="Eslogan y repetición" onerror="this.remove()"></div><h3>Eslogan y repetición</h3><p>Fácil de recordar.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Lema corto: «Desata el monstruo en ti».</li><li>Marca repetida en latas y firma.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Impacto visual"><div class="tf"><span>💥</span><img src="img/impacto.jpg" alt="Impacto visual" onerror="this.remove()"></div><h3>Impacto visual</h3><p>Llama la atención.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li>Verde fosforescente, contraste y luces.</li><li>Funciona en la calle o en una pantalla.</li></ul></div></div>
+<div class="caja tarj" tabindex="0" role="button" aria-label="Ver resumen: Lenguaje apelativo"><div class="tf"><span>👉</span><img src="img/apelativo.jpg" alt="Lenguaje apelativo" onerror="this.remove()"></div><h3>Lenguaje apelativo</h3><p>Habla directamente al lector.</p><em class="mas">Pulsa para ver el resumen</em><div class="det" hidden><ul><li><strong>Imperativo</strong> («desata»).</li><li><strong>Segunda persona</strong> («en ti»).</li><li>Implica personalmente al receptor.</li></ul></div></div>
+  </div>
+</section>
+
+<!-- 13 CRITICA -->
+<section class="slide">
+  <h2><small>12 · VALORACIÓN CRÍTICA</small>¿Funciona? Sí, pero…</h2>
+  <div class="dos">
+    <div class="caja"><h3>✔ Muy eficaz</h3><p>Capta la atención de un público joven, es memorable y transmite una identidad clara.</p></div>
+    <div class="caja" style="border-top-color:#ff3b2f"><h3 style="color:#ff3b2f">⚠ Ojo</h3><p>Asocia una bebida con cafeína y azúcar a la valentía y el rendimiento. Las autoridades sanitarias aconsejan un consumo moderado, sobre todo en menores.</p></div>
+  </div>
+  <p>El anuncio sugiere sin decirlo que <strong>sin la bebida no puedes «desatar» al monstruo</strong></p>
+</section>
+
+<!-- 14 FUENTES -->
+<section class="slide">
+  <h2><small>13 · FUENTES</small>Fuentes consultadas</h2>
+  <ul>
+    <li><a href="https://www.monsterenergy.com" target="_blank" rel="noopener">monsterenergy.com</a> — sitio oficial</li>
+    <li><a href="https://www.monsterbevcorp.com" target="_blank" rel="noopener">monsterbevcorp.com</a> — información corporativa</li>
+    <li><a href="https://es.wikipedia.org/wiki/Monster_Energy" target="_blank" rel="noopener">es.wikipedia.org/wiki/Monster_Energy</a></li>
+    <li><a href="https://dle.rae.es" target="_blank" rel="noopener">dle.rae.es</a> — Diccionario de la lengua española</li>
+    <li>Apuntes de Lengua</li>
+    <li>
+  <a href="https://es.pinterest.com/pin/791015122028480081/"
+     target="_blank" rel="noopener">
+    Pinterest — imagen del anuncio
+  </a>
+</li>
+  </ul>
+  <p class="lema" style="font-size:clamp(2rem,6vw,4rem);margin-top:1rem">¿Preguntas? <em>¡Gracias!</em></p>
+</section>
+
+<div id="modal" aria-hidden="true"><button id="mx" aria-label="Cerrar">✕</button>
+<div id="mbox" role="dialog" aria-modal="true"><div id="mimg"></div><div id="mtxt"><h2 id="mt"></h2><ul id="mu"></ul></div></div></div>
+<div id="ctl"><button id="prev" aria-label="Anterior">←</button><span id="num"></span><button id="next" aria-label="Siguiente">→</button></div>
+
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function go(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,k)=>s.classList.toggle('on',k===i));
+document.getElementById('num').textContent=(i+1)+' / '+S.length;
+document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';}
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('next').onclick=()=>go(i+1);
+document.addEventListener('keydown',e=>{
+ if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}
+ else if(['ArrowLeft','PageUp'].includes(e.key))go(i-1);
+ else if(e.key==='Home')go(0);else if(e.key==='End')go(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
+let x0=null;document.addEventListener('touchstart',e=>x0=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(i+(d<0?1:-1));x0=null});
+
+const M=document.getElementById('modal');
+function abrir(c){
+ const im=c.querySelector('.tf img'),em=c.querySelector('.tf span').textContent;
+ const mi=document.getElementById('mimg');mi.innerHTML='<span>'+em+'</span>';
+ if(im){const n=document.createElement('img');n.src=im.src;n.alt=im.alt;n.onerror=()=>n.remove();mi.appendChild(n)}
+ document.getElementById('mt').textContent=c.querySelector('h3').textContent;
+ document.getElementById('mu').innerHTML=c.querySelector('.det ul').innerHTML;
+ M.classList.add('open');document.getElementById('mx').focus();
+}
+function cerrar(){M.classList.remove('open')}
+document.querySelectorAll('.tarj').forEach(c=>{
+ c.addEventListener('click',()=>abrir(c));
+ c.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();e.stopPropagation();abrir(c)}});
+});
+document.getElementById('mx').onclick=cerrar;
+M.addEventListener('click',e=>{if(e.target===M)cerrar()});
+document.addEventListener('keydown',e=>{
+ if(M.classList.contains('open')){e.stopImmediatePropagation();if(e.key==='Escape')cerrar()}
+},true);
+document.addEventListener('keydown',e=>{if(e.key===' '&&e.target.classList.contains('tarj'))e.preventDefault()},true);
+go(0);
+</script>
+</body>
+</html>
